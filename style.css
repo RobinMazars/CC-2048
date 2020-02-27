@@ -1,3 +1,16 @@
+@font-face {
+ font-family: "Clear Sans";
+ src: url("fonts/ClearSans-Bold.ttf");
+}
+
+body {
+ font-family: "Clear Sans";
+}
+
+p {
+  margin: 0
+}
+
 #frame {
   margin: 100px auto;
   width: 880px;
@@ -20,12 +33,16 @@
   background-color: #ccbfb4;
 }
 
-.s2 {
-  width: 50%;
-  height: 50%;
-  margin : 10px;
-  background-color: #eee4da;
+.box div
+{
+  width: 100%;
+  height: 100%;
+  font-size: 6rem;
   border-radius: 2px;
   text-align: center;
-  font-size: 6rem;
+}
+
+.s2 {
+  background-color: #eee4da;
+  color: #776e65;
 }
