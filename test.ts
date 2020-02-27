@@ -24,15 +24,21 @@ function init_box()
   console.log(id2)
   let box = document.getElementById("case_"+id1.toString());
   let sb = document.createElement("div")
+  let p = document.createElement("p")
   sb.classList.add("s2")
   let newContent = document.createTextNode((2).toString())
-  sb.appendChild(newContent)
+  p.appendChild(newContent)
+  sb.appendChild(p)
   box.appendChild(sb)
+
   box = document.getElementById("case_"+id2.toString());
   sb = document.createElement("div")
+  p = document.createElement("p")
   sb.classList.add("s2")
   newContent = document.createTextNode((2).toString())
   sb.appendChild(newContent)
+  p.appendChild(newContent)
+  sb.appendChild(p)
   box.appendChild(sb)
 }
 
