@@ -1,0 +1,18 @@
+#canvas {
+  margin: 100px auto;
+  width: 880px;
+  height: 880px;
+  padding: 20px 10px;
+  border-radius: 2px;
+  background-color: #b6a89c;
+  display: table;
+}
+
+.box {
+  width: 200px;
+  margin: 0 10px;;
+  height: 200px;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #ccbfb4;
+}
