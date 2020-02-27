@@ -2,7 +2,7 @@
   margin: 100px auto;
   width: 880px;
   height: 880px;
-  padding: 20px 10px;
+  padding: 20px 10px 0 10px;
   border-radius: 2px;
   background-color: #b6a89c;
   display: table;
@@ -10,9 +10,17 @@
 
 .box {
   width: 200px;
-  margin: 0 10px;;
+  margin: 0 10px;
+  margin-bottom: 20px;
   height: 200px;
   display: inline-block;
   border-radius: 2px;
   background-color: #ccbfb4;
+}
+
+.s2 {
+  width: 100%;
+  height: 100%;
+  background-color: #eee4da;
+  border-radius: 2px;
 }
