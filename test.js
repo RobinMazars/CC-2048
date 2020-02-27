@@ -11,17 +11,25 @@ function create_box() {
     console.log("END");
 }
 function init_box() {
-    let i = 0;
-    while (i < 2) {
-        let id = Math.floor(Math.random() * 16);
-        let box = document.getElementById("case_" + id.toString());
-        let sb = document.createElement("div");
-        sb.classList.add("s2");
-        let newContent = document.createTextNode((2).toString());
-        sb.appendChild(newContent);
-        box.appendChild(sb);
-        i++;
+    let id1 = Math.floor(Math.random() * 16 + 1);
+    let id2 = Math.floor(Math.random() * 16 + 1);
+    while (id1 == id2) {
+        id2 = Math.floor(Math.random() * 15 + 1);
     }
+    console.log(id1);
+    console.log(id2);
+    let box = document.getElementById("case_" + id1.toString());
+    let sb = document.createElement("div");
+    sb.classList.add("s2");
+    let newContent = document.createTextNode((2).toString());
+    sb.appendChild(newContent);
+    box.appendChild(sb);
+    box = document.getElementById("case_" + id2.toString());
+    sb = document.createElement("div");
+    sb.classList.add("s2");
+    newContent = document.createTextNode((2).toString());
+    sb.appendChild(newContent);
+    box.appendChild(sb);
 }
 create_box();
 init_box();

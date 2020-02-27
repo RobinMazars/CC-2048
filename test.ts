@@ -14,19 +14,26 @@ function create_box()
 }
 function init_box()
 {
-  let i:number = 0;
-  while (i < 2)
+  let id1 = Math.floor(Math.random() * 16 + 1);
+  let id2 = Math.floor(Math.random() * 16 + 1);
+  while (id1 == id2)
   {
-    let id = Math.floor(Math.random() * 16);
-    let box = document.getElementById("case_"+id.toString());
-    let sb = document.createElement("div")
-    sb.classList.add("s2")
-    let newContent = document.createTextNode((2).toString())
-    sb.appendChild(newContent)
-    box.appendChild(sb)
-    i++;
+    id2 = Math.floor(Math.random() * 15 + 1)
   }
-
+  console.log(id1)
+  console.log(id2)
+  let box = document.getElementById("case_"+id1.toString());
+  let sb = document.createElement("div")
+  sb.classList.add("s2")
+  let newContent = document.createTextNode((2).toString())
+  sb.appendChild(newContent)
+  box.appendChild(sb)
+  box = document.getElementById("case_"+id2.toString());
+  sb = document.createElement("div")
+  sb.classList.add("s2")
+  newContent = document.createTextNode((2).toString())
+  sb.appendChild(newContent)
+  box.appendChild(sb)
 }
 
 create_box();
