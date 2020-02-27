@@ -42,7 +42,17 @@ p {
   text-align: center;
 }
 
+.box p
+{
+  padding-top: 25px;
+}
+
 .s2 {
   background-color: #eee4da;
+  color: #776e65;
+}
+
+.s4 {
+  background-color: #ede0c8;
   color: #776e65;
 }
