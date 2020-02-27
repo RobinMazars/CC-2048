@@ -29,12 +29,21 @@ function init_box() {
     box = document.getElementById("case_" + id2.toString());
     sb = document.createElement("div");
     p = document.createElement("p");
-    sb.classList.add("s2");
-    newContent = document.createTextNode((2).toString());
+    newContent = document.createTextNode((nbr_2_4()).toString());
     sb.appendChild(newContent);
+    sb.classList.add("s" + sb.innerHTML);
     p.appendChild(newContent);
     sb.appendChild(p);
     box.appendChild(sb);
+}
+function nbr_2_4() {
+    let nbr_rand = Math.random();
+    if (nbr_rand > 0.9) {
+        return 4;
+    }
+    else {
+        return 2;
+    }
 }
 create_box();
 init_box();
