@@ -1,22 +1,86 @@
 @font-face {
- font-family: "Clear Sans";
- src: url("fonts/ClearSans-Bold.ttf");
+  font-family: "Clear Sans";
+  src: url("fonts/ClearSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  src: url("fonts/ClearSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 body {
  font-family: "Clear Sans";
+ display: block;
+ width: 500px;
+ margin: 80px auto;
 }
 
 p {
-  margin: 0
+  margin: 0;
+}
+
+#head {
+  color: #776e65;
+  width: 500px;
+  height: 100px;
+  font-size: 80px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 80px;
+  display: block;
+  margin: 0;
+  float:left;
+}
+
+#rules {
+  color: #776e65;
+  margin: 0px auto;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+#scores
+{
+  float: right;
+  display: flex;
+  margin-top: 30px;
+}
+
+#score, #best {
+  background-color: #bbada0;
+  color: white;
+  border-radius: 3px;
+  font-size: 25px;
+  text-align: center;
+  padding: 0px 15px 7px 15px;
+  margin-left: 5px;
+  line-height: 22px;
+}
+
+#score:before {
+  content: "SCORE";
+  font-size: 13px;
+}
+
+#best:before {
+  content: "BEST";
+  font-size: 13px;
 }
 
 #frame {
-  margin: 100px auto;
-  width: 440px;
-  height: 440px;
-  padding: 10px;
-  border-radius: 2px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  width: 485px;
+  height: 485px;
+  padding: 7.5px;
+  border-radius: 3px;
   background-color: #b6a89c;
   display: table;
   border-radius: 1%;
@@ -26,10 +90,10 @@ p {
 }
 
 .box {
-  width: 100px;
-  margin: 5px;
-  height: 100px;
-  border-radius: 2px;
+  width: 106.25px;
+  height: 106.25px;
+  margin: 7.5px;
+  border-radius: 3px;
   background-color: #ccbfb4;
 }
 
@@ -40,6 +104,7 @@ p {
   font-size: 3rem;
   border-radius: 2px;
   text-align: center;
+  font-weight: bold;
 }
 
 .box p
