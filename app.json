@@ -1,0 +1,8 @@
+{
+  "name": "CC-2048",
+  "description": "CC-2048 game for fun",
+  "repository": "",
+  "logo": "",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
