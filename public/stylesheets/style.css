@@ -39,6 +39,14 @@ h1 {
   float:left;
 }
 
+h1:before {
+  content: "camelCaesar's";
+  line-height: 0px;
+  display: block;
+  font-size: 29px;
+  font-weight: normal;
+}
+
 #rules {
   color: #776e65;
   margin: 0px auto;
