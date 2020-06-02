@@ -3,15 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>CC - 2048</title>
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Host by heroku</h1>
-    <div id="frame">
+    <div id="head">
+      <h1>2048</h1>
+      <div id="scores">
+        <div id="best">
+          <p>0</p>
+        </div>
+        <div id="score">
+          <p>0</p>
+        </div>
+      </div>
     </div>
-    <script src="./js/test.js" charset="utf-8"></script>
+    <div id="rules"><p>Join the numbers and get to the <strong>2048 tile</strong>!</p></div>
+    <div id="frame"></div>
+    <script src="test.js" charset="utf-8"></script>
   </body>
 </html>
