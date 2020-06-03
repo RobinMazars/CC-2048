@@ -91,13 +91,13 @@ h1:before {
 
 #reset{
   cursor: pointer;
-    background-color: #8f7a66;
-    color: white;
-    border-radius: 3px;
-    font-weight: bold;
-    padding: 0px 20px 2px 20px;
-    height: 40px;
-    display: table;
+  background-color: #8f7a66;
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 0px 20px 2px 20px;
+  height: 40px;
+  display: table;
 }
 
 #reset p{
@@ -125,19 +125,42 @@ h1:before {
   margin: 7.5px;
   border-radius: 3px;
   background-color: #ccbfb4;
+  display: grid;
 }
 
 .box div {
+  margin: auto;
   width: 100%;
   height: 100%;
   font-size: 3rem;
   border-radius: 2px;
   text-align: center;
+  vertical-align: middle;
+  display: table-cell;
   font-weight: bold;
+  opacity: 0;
+  overflow: hidden;
+
+  animation: 200ms ease 100ms 1 normal forwards running appear;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
 }
 
 .box p {
-  padding-top: 14px;
+  padding-bottom: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .s2 {
