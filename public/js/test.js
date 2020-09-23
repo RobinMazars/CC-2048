@@ -30,7 +30,7 @@ function init_box() {
     let box2 = document.getElementById("case_" + id2.toString());
     let sb2 = document.createElement("div");
     let p2 = document.createElement("p");
-    newContent = document.createTextNode((nbr_2_4()).toString());
+    newContent = document.createTextNode(nbr_2_4().toString());
     sb2.appendChild(newContent);
     sb2.classList.add("s" + sb2.innerHTML);
     sb2.classList.add("sb");
@@ -40,7 +40,7 @@ function init_box() {
 }
 function nbr_2_4() {
     let nbr_rand = Math.random();
-    if (nbr_rand > 0.5)
+    if (nbr_rand > 1)
         return 4;
     else
         return 2;
@@ -54,8 +54,8 @@ function check_exist(id) {
     let elems = document.getElementsByClassName("sb");
     for (let i = 0; i < elems.length; i++)
         if ("case_" + id == elems[i].parentElement.id)
-            return (1);
-    return (0);
+            return 1;
+    return 0;
 }
 function add_box() {
     let id1 = Math.floor(Math.random() * 16 + 1);
@@ -71,7 +71,7 @@ function add_box() {
     let sb = document.createElement("div");
     // console.log(box)
     let p = document.createElement("p");
-    let newContent = document.createTextNode((nbr_2_4()).toString());
+    let newContent = document.createTextNode(nbr_2_4().toString());
     p.appendChild(newContent);
     sb.classList.add("s" + p.innerHTML);
     sb.classList.add("sb");
@@ -166,11 +166,41 @@ function ft_push(dir) {
         let obj = arr[i];
         transfert(obj, x, y, x + decalx, y + decaly, max, dir2);
     }
-    add_box();
+    // add_box();
+}
+function detect_nbr(id) {
+    let box = document.getElementById("case_" + id.toString());
+    // console.log(box);
+    let underbox = box.getElementsByTagName("div")[0];
+    let cla2 = underbox.classList;
+    console.log(cla2);
+    for (let i = 0; i < cla2.length; i++) {
+        var matches = cla2.item(i).match(/s(\d+)/);
+        if (matches) {
+            let value = matches[0].substring(1, cla2.length);
+            return value;
+        }
+    }
+}
+function neutralize(box) {
+    box.getElementsByTagName("div")[0].remove();
+}
+function double(id) {
+    let box = document.getElementById("case_" + id.toString());
+    // console.log(box);
+    let underbox = box.getElementsByTagName("div")[0];
+    let value = detect_nbr(id);
+    let cllist = underbox.classList;
+    underbox.classList.remove("s" + value);
+    let dvalue = value * 2;
+    underbox.classList.add("s" + dvalue);
+    let p = underbox.getElementsByTagName("p")[0];
+    console.log(p);
+    let newContent = document.createTextNode(dvalue.toString());
+    p.innerHTML = dvalue.toString();
 }
 function transfert(obj, ox, oy, dx, dy, max, dir) {
     // console.log(obj.className.split(" "))
-    let cl = obj.className.split(" ");
     // console.log("cl")
     // console.log(cl)
     console.log("transfert");
@@ -188,7 +218,7 @@ function transfert(obj, ox, oy, dx, dy, max, dir) {
     if (dir2 != max && !check_exist(nbr2)) {
         let box2 = document.getElementById("case_" + nbr2.toString());
         // console.log(box2)
-        let value = cl[0].substring(1, cl[0].length);
+        let value = detect_nbr(nbr);
         // console.log("valeur " + value)
         let box = document.getElementById("case_" + nbr2);
         let sb = document.createElement("div");
@@ -196,16 +226,26 @@ function transfert(obj, ox, oy, dx, dy, max, dir) {
         let newContent = document.createTextNode(value.toString());
         p.appendChild(newContent);
         // console.log("length "obj.className.split(" ").length)
-        len = cl.length;
-        for (let i = 0; i < len; i++) {
+        let cl = obj.classList;
+        for (let i = 0; i < obj.classList.length; i++) {
             sb.classList.add(cl[i]);
         }
         sb.appendChild(p);
         box.appendChild(sb);
         obj.remove();
     }
-    else {
-        // console.log("au bout")
+    else if (check_exist(nbr2)) {
+        // console.log("touch autre");
+        let value = detect_nbr(nbr);
+        let other_value = detect_nbr(nbr2);
+        console.log(value);
+        console.log(other_value);
+        if (other_value == value) {
+            // console.log("same value");
+            let box = document.getElementById("case_" + nbr.toString());
+            neutralize(box);
+            double(nbr2);
+        }
     }
     // console.log("end transfert")
 }
