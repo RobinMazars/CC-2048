@@ -128,43 +128,50 @@ function sort_down(elem1, elem2) {
 }
 function ft_push(dir) {
     let listBox = document.getElementsByClassName("sb");
-    var arr = Array.prototype.slice.call(listBox);
-    let decalx = 0;
-    let decaly = 0;
-    let max = -1;
-    let dir2 = "n";
-    if (dir == "right") {
-        arr.sort(sort_right);
-        decaly = 1;
-        max = 3;
-        dir2 = "y";
-    }
-    else if (dir == "left") {
-        arr.sort(sort_left);
-        decaly = -1;
-        max = 0;
-        dir2 = "y";
-    }
-    else if (dir == "up") {
-        arr.sort(sort_up);
-        decalx = -1;
-        max = 0;
-        dir2 = "x";
-    }
-    else if (dir == "down") {
-        arr.sort(sort_down);
-        decalx = 1;
-        max = 3;
-        dir2 = "x";
-    }
-    let len = arr.length;
-    for (let i = 0; i < len; i++) {
-        let id = arr[i].parentNode.id;
-        let nbr = id.split("_")[1];
-        let x = Math.floor((nbr - 1) / 4);
-        let y = ((nbr % 4) + 3) % 4;
-        let obj = arr[i];
-        transfert(obj, x, y, x + decalx, y + decaly, max, dir2);
+    let no_transfert = 1;
+    while (no_transfert > 0) {
+        no_transfert = 0;
+        var arr = Array.prototype.slice.call(listBox);
+        let decalx = 0;
+        let decaly = 0;
+        let max = -1;
+        let dir2 = "n";
+        if (dir == "right") {
+            arr.sort(sort_right);
+            decaly = 1;
+            max = 3;
+            dir2 = "y";
+        }
+        else if (dir == "left") {
+            arr.sort(sort_left);
+            decaly = -1;
+            max = 0;
+            dir2 = "y";
+        }
+        else if (dir == "up") {
+            arr.sort(sort_up);
+            decalx = -1;
+            max = 0;
+            dir2 = "x";
+        }
+        else if (dir == "down") {
+            arr.sort(sort_down);
+            decalx = 1;
+            max = 3;
+            dir2 = "x";
+        }
+        let len = arr.length;
+        for (let i = 0; i < len; i++) {
+            let id = arr[i].parentNode.id;
+            let nbr = id.split("_")[1];
+            let x = Math.floor((nbr - 1) / 4);
+            let y = ((nbr % 4) + 3) % 4;
+            let obj = arr[i];
+            let ret = transfert(obj, x, y, x + decalx, y + decaly, max, dir2);
+            if (ret == true) {
+                no_transfert++;
+            }
+        }
     }
     add_box();
 }
@@ -234,6 +241,7 @@ function transfert(obj, ox, oy, dx, dy, max, dir) {
         sb.appendChild(p);
         box.appendChild(sb);
         obj.remove();
+        return true;
     }
     else if (check_exist(nbr2)) {
         // console.log("touch autre");
@@ -246,9 +254,13 @@ function transfert(obj, ox, oy, dx, dy, max, dir) {
             let box = document.getElementById("case_" + nbr.toString());
             neutralize(box);
             double(nbr2);
+            return true;
+        }
+        else {
+            return false;
         }
     }
-    // console.log("end transfert")
+    console.log("end transfert");
 }
 $(document).on("keydown", function (e) {
     if (e.key == "ArrowRight")

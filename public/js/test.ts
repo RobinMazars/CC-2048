@@ -133,6 +133,9 @@ function sort_down(elem1, elem2) {
 
 function ft_push(dir) {
   let listBox = document.getElementsByClassName("sb");
+  let no_transfert = 1
+  while (no_transfert > 0) {
+    no_transfert = 0
   var arr = Array.prototype.slice.call(listBox);
   let decalx = 0;
   let decaly = 0;
@@ -160,13 +163,17 @@ function ft_push(dir) {
     dir2 = "x";
   }
   let len = arr.length;
-  for (let i = 0; i < len; i++) {
-    let id = arr[i].parentNode.id;
-    let nbr = id.split("_")[1];
-    let x = Math.floor((nbr - 1) / 4);
-    let y = ((nbr % 4) + 3) % 4;
-    let obj = arr[i];
-    transfert(obj, x, y, x + decalx, y + decaly, max, dir2);
+    for (let i = 0; i < len; i++) {
+      let id = arr[i].parentNode.id;
+      let nbr = id.split("_")[1];
+      let x = Math.floor((nbr - 1) / 4);
+      let y = ((nbr % 4) + 3) % 4;
+      let obj = arr[i];
+      let ret = transfert(obj, x, y, x + decalx, y + decaly, max, dir2);
+      if (ret == true) {
+        no_transfert++
+      }
+    }
   }
   add_box();
 }
@@ -238,6 +245,7 @@ function transfert(obj, ox: int, oy: int, dx: int, dy: int, max: int, dir) {
     sb.appendChild(p);
     box.appendChild(sb);
     obj.remove();
+    return true
   } else if (check_exist(nbr2)) {
     // console.log("touch autre");
     let value = detect_nbr(nbr);
@@ -249,9 +257,13 @@ function transfert(obj, ox: int, oy: int, dx: int, dy: int, max: int, dir) {
       let box = document.getElementById("case_" + nbr.toString());
       neutralize(box)
       double(nbr2)
+      return true
+    }
+    else {
+      return false
     }
   }
-  // console.log("end transfert")
+  console.log("end transfert")
 }
 
 $(document).on("keydown", function(e) {

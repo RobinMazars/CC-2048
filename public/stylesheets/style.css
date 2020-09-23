@@ -173,20 +173,24 @@ h1:before {
   color: #776e65;
 }
 .s8 {
-  background-color: red;
-  color: #776e65;
+  background-color: #f2b179;
+  color: #f9f6f2;
 }
 .s16 {
-  background-color: steelblue;
-  color: #776e65;
+  background-color: #f59563;
+  color: #f9f6f2;
 }
 .s32 {
-  background-color: yellow;
-  color: #776e65;
+  background-color: #f67c5f;
+  color: #f9f6f2;
 }
 .s64 {
-  background-color: green;
-  color: #776e65;
+  background-color: #f65e3b;
+  color: #f9f6f2;
+}
+.s128 {
+  background-color: #edcf72;
+  color: #f9f6f2;
 }
 
 footer {
