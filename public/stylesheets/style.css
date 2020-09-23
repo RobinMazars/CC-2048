@@ -172,6 +172,22 @@ h1:before {
   background-color: #ede0c8;
   color: #776e65;
 }
+.s8 {
+  background-color: red;
+  color: #776e65;
+}
+.s16 {
+  background-color: steelblue;
+  color: #776e65;
+}
+.s32 {
+  background-color: yellow;
+  color: #776e65;
+}
+.s64 {
+  background-color: green;
+  color: #776e65;
+}
 
 footer {
   font-size: small;

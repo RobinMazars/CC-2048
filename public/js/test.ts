@@ -42,7 +42,7 @@ function init_box() {
 
 function nbr_2_4() {
   let nbr_rand = Math.random();
-  if (nbr_rand > 1) return 4;
+  if (nbr_rand > 0.5) return 4;
   else return 2;
 }
 
@@ -168,7 +168,7 @@ function ft_push(dir) {
     let obj = arr[i];
     transfert(obj, x, y, x + decalx, y + decaly, max, dir2);
   }
-  // add_box();
+  add_box();
 }
 
 function detect_nbr(id: int): int {
@@ -178,9 +178,10 @@ function detect_nbr(id: int): int {
   let cla2 = underbox.classList;
   console.log(cla2)
   for (let i = 0; i < cla2.length; i++) {
-    var matches = cla2.item(i).match(/s(\d+)/);
+    var matches = cla2.item(i).match(/s(\d+)$/);
     if (matches) {
-      let value = matches[0].substring(1, cla2.length);
+      let value = matches[0].substring(1);
+      console.log(value)
       return value
     }
   }
@@ -241,8 +242,8 @@ function transfert(obj, ox: int, oy: int, dx: int, dy: int, max: int, dir) {
     // console.log("touch autre");
     let value = detect_nbr(nbr);
     let other_value = detect_nbr(nbr2);
-    console.log(value);
-    console.log(other_value);
+    // console.log(value);
+    // console.log(other_value);
     if (other_value == value) {
       // console.log("same value");
       let box = document.getElementById("case_" + nbr.toString());
